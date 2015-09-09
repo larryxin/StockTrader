@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("StockTrader")]
+[assembly: AssemblyTitle("XiaDan")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("StockTrader")]
+[assembly: AssemblyProduct("XiaDan")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("ae01c78e-161f-48ea-a5b1-99e3b193bc49")]
+[assembly: Guid("e03dfa29-6f2e-4e9f-a35d-e146dc9466be")]
 
 // 程序集的版本信息由下面四个值组成:
 //
