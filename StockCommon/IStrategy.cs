@@ -32,9 +32,41 @@ namespace Stock.Strategy
 {
     public interface IStrategy
     {
+        ///<summary>定义一个委托类型</summary>
+        public delegate void StockRemoveHandler(object sender, string code);
+        public delegate void StockAddHandler(object sender, string code);
+
+        /// <summary>定义一个事件</summary>
+        public event StockRemoveHandler OnStockRemove;
+        public event StockAddHandler OnStockAdd;
+
+        string Name { get; set; }
+        string Description { get; set; }
+        bool IsValid { get; set; }
+        String[] StockPool { get; }
+
+        /// <summary>
+        /// 执行
+        /// </summary>
         void Run();
 
-        void OnStockDataChanged(object sender, StockData data);
+        /// <summary>
+        /// 加入策略池关注的股票
+        /// </summary>
+        /// <param name="code"></param>
+        void AddStock(string code);
 
+        /// <summary>
+        /// 删除股票
+        /// </summary>
+        /// <param name="code"></param>
+        void RemoveStock(String code);
+
+        /// <summary>
+        /// 股票价格发生变化时调用此方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="data"></param>
+        void OnStockDataChanged(object sender, StockData data);
     }
 }

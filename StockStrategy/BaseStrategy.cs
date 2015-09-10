@@ -26,10 +26,89 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Stock.Strategy;
 
 namespace StockStrategy
 {
-    public class BaseStrategy
+    public class BaseStrategy : IStrategy
     {
+        private string name;
+        private string description;
+        private bool isValid;
+        private ICollection<string> stockPool;
+
+        #region 实现接口
+
+        public void Run()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnStockDataChanged(object sender, Stock.Market.StockData data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public event IStrategy.StockRemoveHandler OnStockRemove;
+
+        public event IStrategy.StockAddHandler OnStockAdd;
+
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+            set
+            {
+                this.name = value;
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return this.description;
+            }
+            set
+            {
+                this.description = value;
+            }
+        }
+
+        public bool IsValid
+        {
+            get
+            {
+                return this.isValid;
+            }
+            set
+            {
+                this.isValid = value;
+            }
+        }
+
+        public String[] StockPool{
+            get
+            {
+                return this.stockPool.ToArray<String>();
+            }
+        }
+
+        public void AddStock(string code)
+        {
+            if (OnStockAdd != null)
+                OnStockAdd(this, code);
+        }
+
+        public void RemoveStock(string code)
+        {
+            if (OnStockRemove != null)
+                OnStockRemove(this, code);
+        }
+
+        #endregion
+
     }
 }

@@ -23,17 +23,17 @@
  */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Stock.Strategy
 {
-    /// <summary>
-    /// 策略组，支持多个策略组合
-    /// </summary>
-    interface IStrategyGroup : IStrategy
+    public class StrategyManager
     {
-        void AddStrategy(IStrategy strategy);
+        IList<IStrategy> strategies = new ArrayList();
+
+
     }
 }
