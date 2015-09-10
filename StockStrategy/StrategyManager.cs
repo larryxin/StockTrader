@@ -30,10 +30,38 @@ using System.Text;
 
 namespace Stock.Strategy
 {
+    /// <summary>
+    /// 管理策略
+    /// </summary>
     public class StrategyManager
     {
-        IList<IStrategy> strategies = new ArrayList();
+        ICollection strategies = new ArrayList();
 
+        /// <summary>
+        ///  从服务器端读取所有的策略，生成策略实例
+        /// </summary>
+        /// <returns></returns>
+        public IStrategy[] ReadAllStrategies()
+        {
+            return null;
+        }
 
+        /// <summary>
+        /// 从服务器端读取个人用的策略
+        /// </summary>
+        /// <returns></returns>
+        public IStrategy[] ReadMyStrategies()
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// 将我的策略保存到服务器
+        /// </summary>
+        /// <param name="strategy"></param>
+        public void SaveMyStrategy(IStrategy strategy)
+        {
+
+        }
     }
 }
