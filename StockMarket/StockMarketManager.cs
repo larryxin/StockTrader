@@ -49,7 +49,6 @@ namespace Stock.Market
             }
             stockDataCache[code].OnStockDataChange += strategy.OnStockDataChanged;
         }
-
         
     }
 }
