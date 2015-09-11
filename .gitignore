@@ -3,3 +3,6 @@ bin
 obj
 monitor.suo
 StockTraderModel
+TestStockTrader
+*.testsettings
+monitor.vsmdi
