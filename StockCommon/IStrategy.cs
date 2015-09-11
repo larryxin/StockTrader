@@ -30,15 +30,16 @@ using Stock.Market;
 
 namespace Stock.Strategy
 {
+    ///<summary>定义一个委托类型</summary>
+    public delegate void StockRemoveHandler(object sender, string code);
+    public delegate void StockAddHandler(object sender, string code);
+    
     public interface IStrategy
     {
-        ///<summary>定义一个委托类型</summary>
-        public delegate void StockRemoveHandler(object sender, string code);
-        public delegate void StockAddHandler(object sender, string code);
 
         /// <summary>定义一个事件</summary>
-        public event StockRemoveHandler OnStockRemove;
-        public event StockAddHandler OnStockAdd;
+        event StockRemoveHandler OnStockRemove;
+        event StockAddHandler OnStockAdd;
 
         string Name { get; set; }
         string Description { get; set; }
