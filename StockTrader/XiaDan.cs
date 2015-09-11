@@ -107,6 +107,46 @@ namespace Stock.Trader
         {
             trader.PartFundSZ(code, num);
         }
+
+        /// <summary>
+        /// 申购基金
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="total"></param>
+        public void PurchaseFundSH(String code, float total)
+        {
+            trader.PurchaseFundSH(code, total);
+        }
+
+        /// <summary>
+        /// 赎回基金
+        /// </summary>
+        /// <param name="code">代码</param>
+        /// <param name="num">份额</param>
+        public void RedempteFundSH(String code, int num)
+        {
+            trader.RedempteFundSH(code, num);
+        }
+
+        /// <summary>
+        /// 合并子基金
+        /// </summary>
+        /// <param name="code">母鸡代码</param>
+        /// <param name="num">合并数量</param>
+        public void MergeFundSH(String code, int num)
+        {
+            trader.MergeFundSH(code, num);
+        }
+
+        /// <summary>
+        /// 分拆母基金
+        /// </summary>
+        /// <param name="code">母鸡代码</param>
+        /// <param name="num">分拆数量</param>
+        public void PartFundSH(String code, int num)
+        {
+            trader.PartFundSH(code, num);
+        }
         /// <summary>
         /// 撤销超时未成交股票
         /// </summary>
@@ -122,6 +162,16 @@ namespace Stock.Trader
         public void CommitRecordToServer()
         {
             // 读取当日的操作日志文件，分析后上传到服务器
+        }
+
+        internal void CancelStock(string code, float price, int num)
+        {
+            trader.CancelStock(code, price, num);
+        }
+
+        internal void GetCashInfo()
+        {
+            trader.GetCashInfo();
         }
     }
 }

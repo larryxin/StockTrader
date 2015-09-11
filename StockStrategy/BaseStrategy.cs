@@ -28,73 +28,22 @@ using System.Linq;
 using System.Text;
 using Stock.Strategy;
 
-namespace StockStrategy
+namespace Stock.Strategy
 {
-    public class BaseStrategy : IStrategy
+    public abstract class BaseStrategy : IStrategy
     {
-        private string name;
-        private string description;
         private bool isValid;
-        private ICollection<string> stockPool;
+        protected ICollection<string> stockPool;
 
         #region 实现接口
 
-        public void Run()
-        {
-            throw new NotImplementedException();
-        }
+        public event StockRemoveHandler OnStockRemove;
+        public event StockAddHandler OnStockAdd;
 
-        public void OnStockDataChanged(object sender, Stock.Market.StockData data)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Run();
 
-        public event IStrategy.StockRemoveHandler OnStockRemove;
+        public abstract void OnStockDataChanged(object sender, Stock.Market.StockData data);
 
-        public event IStrategy.StockAddHandler OnStockAdd;
-
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
-            set
-            {
-                this.name = value;
-            }
-        }
-
-        public string Description
-        {
-            get
-            {
-                return this.description;
-            }
-            set
-            {
-                this.description = value;
-            }
-        }
-
-        public bool IsValid
-        {
-            get
-            {
-                return this.isValid;
-            }
-            set
-            {
-                this.isValid = value;
-            }
-        }
-
-        public String[] StockPool{
-            get
-            {
-                return this.stockPool.ToArray<String>();
-            }
-        }
 
         public void AddStock(string code)
         {
@@ -108,7 +57,39 @@ namespace StockStrategy
                 OnStockRemove(this, code);
         }
 
+        public abstract string Name
+        {
+            get;
+            set;
+        }
+
+        public abstract string Description
+        {
+            get;
+            set;
+        }
+        public bool IsValid
+        {
+            get
+            {
+                return this.isValid;
+            }
+            set
+            {
+                this.isValid = value;
+            }
+        }
+
+        public String[] StockPool
+        {
+            get
+            {
+                return this.stockPool.ToArray<String>();
+            }
+        }
+
         #endregion
+
 
     }
 }

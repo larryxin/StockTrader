@@ -42,6 +42,14 @@
   <ItemGroup>
     <Compile Include="BaseStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RotationStrategy1.cs" />
+    <Compile Include="StrategyManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StockCommon\StockCommon.csproj">
+      <Project>{822279CE-076E-46BF-85CF-FA30AD427D46}</Project>
+      <Name>StockCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
