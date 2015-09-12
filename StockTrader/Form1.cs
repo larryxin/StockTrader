@@ -34,6 +34,8 @@ using System.Windows.Forms;
 using Stock.Trader.WeiTuo;
 using Stock.Trader.WeiTuo.HuaTai;
 using Stock.Trader;
+using Stock.Strategy;
+using Stock.Strategy.Settings;
 
 namespace StockTrader
 {
@@ -43,10 +45,76 @@ namespace StockTrader
         public Form1()
         {
             InitializeComponent();
+            InitStrategyMenu();
             xiadan = XiaDan.Instance;
             xiadan.Init();
         }
 
+        /// <summary>
+        /// 初始化右键菜单策略
+        /// </summary>
+        private void InitStrategyMenu()
+        {
+            // 从服务器获取策略数据，
+            StrategyDesc[] sds = loadStrategyList();
+
+            foreach (var sd in sds)
+            {
+                ToolStripMenuItem tsmi = new ToolStripMenuItem();
+                tsmi.Text = sd.name;
+                tsmi.Tag = sd;
+                tsmi.Click += new EventHandler(AddStrategyToListView);
+                this.miFfjjStrategy.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                tsmi});
+             }
+        }
+
+        /// <summary>
+        /// 策略的描述
+        /// </summary>
+        class StrategyDesc
+        {
+            public String name;
+            public String desc;
+            public String clazz;
+            public int group;
+        }
+
+        private StrategyDesc[] loadStrategyList()
+        {
+            StrategyDesc[] sd = new StrategyDesc[] { new StrategyDesc() };
+//            sd[0] = new StrategyDesc();
+            sd[0].clazz = "Stock.Strategy.Settings.RotationStrategyForm";
+            sd[0].desc = "说明：西胖子轮动策略";
+            sd[0].name = "西胖子轮动策略";
+            sd[0].group = 0;
+
+            return sd;
+        }
+
+        /// <summary>
+        /// 加入策略到列表视图。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void AddStrategyToListView(object sender, EventArgs e)
+        {
+            StrategyDesc sd = (StrategyDesc)((ToolStripMenuItem)sender).Tag;
+
+            BaseSettingForm form = new Stock.Strategy.Settings.RotationStrategyForm();
+
+            StrategyManager.Instance.AddMyStrategy(form.Strategy);
+
+            System.Windows.Forms.ListViewItem lvi = new System.Windows.Forms.ListViewItem(new string[] {
+            sd.name,
+            sd.desc}, -1);
+            lvi.Group = this.listView1.Groups[sd.group];
+            lvi.Tag = form;
+            this.listView1.Items.Add(lvi);
+
+        }
+
+        #region 测试下单
         private void button16_Click(object sender, EventArgs e)
         {
             xiadan = XiaDan.Instance;
@@ -113,6 +181,30 @@ namespace StockTrader
         private void button12_Click(object sender, EventArgs e)
         {
             xiadan.PartFundSH(textBox1.Text, int.Parse(textBox3.Text));
+        }
+        #endregion
+
+        /// <summary>
+        /// 选中item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (!e.IsSelected) return;
+            
+            MessageBox.Show("获取" + e.Item.Text + "池子");
+
+            // 获取策略相关的系统推荐池
+            // 获取个人池
+
+        }
+
+        private void btnSetup_Click(object sender, EventArgs e)
+        {
+            BaseSettingForm form = (BaseSettingForm)this.listView1.SelectedItems[0].Tag;
+            if(form != null)
+                form.ShowDialog();
         }
 
     }

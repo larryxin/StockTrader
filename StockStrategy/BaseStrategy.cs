@@ -41,7 +41,6 @@ namespace Stock.Strategy
         public event StockAddHandler OnStockAdd;
 
         public abstract void Run();
-
         public abstract void OnStockDataChanged(object sender, Stock.Market.StockData data);
 
 

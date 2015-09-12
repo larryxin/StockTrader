@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MarketType.cs" />
-    <Compile Include="ReadStockMarket.cs" />
+    <Compile Include="ReadTdxStockMarketThread.cs" />
+    <Compile Include="ReadStockMarketThread.cs" />
+    <Compile Include="ReadTushareStockMarketThread.cs" />
     <Compile Include="StockMarketManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

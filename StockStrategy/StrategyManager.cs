@@ -37,8 +37,21 @@ namespace Stock.Strategy
     {
         ICollection strategies = new ArrayList();
 
+        private static StrategyManager instance = new StrategyManager();
+
+        public static StrategyManager Instance
+        {
+            get { return instance; }
+        }
+
+        #region .ctor()
+        private StrategyManager()
+        {
+        }
+        #endregion
+
         /// <summary>
-        ///  从服务器端读取所有的策略，生成策略实例
+        ///  从服务器端读取我的所有策略，生成策略实例
         /// </summary>
         /// <returns></returns>
         public IStrategy[] ReadAllStrategies()
@@ -47,7 +60,7 @@ namespace Stock.Strategy
         }
 
         /// <summary>
-        /// 从服务器端读取个人用的策略
+        /// 读取个人用的策略
         /// </summary>
         /// <returns></returns>
         public IStrategy[] ReadMyStrategies()
@@ -56,12 +69,21 @@ namespace Stock.Strategy
         }
 
         /// <summary>
-        /// 将我的策略保存到服务器
+        /// 增加我的策略
         /// </summary>
         /// <param name="strategy"></param>
-        public void SaveMyStrategy(IStrategy strategy)
+        public void AddMyStrategy(IStrategy strategy)
         {
 
+        }
+
+        /// <summary>
+        /// 删除我的策略
+        /// </summary>
+        /// <param name="strategy"></param>
+        public void DeleteMyStrategy(IStrategy strategy)
+        {
+            
         }
     }
 }

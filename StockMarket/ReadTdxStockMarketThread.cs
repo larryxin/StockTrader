@@ -16,6 +16,8 @@ namespace Stock.Market
             TcpClient tcpClient = new TcpClient();
             tcpClient.Connect(IPAddress.Parse("218.18.103.38"), 7709);
 
+            NetworkStream ns = tcpClient.GetStream();
+            Console.WriteLine(ns.ToString());
         }
 
     }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Stock.Market
 {
-    public class ReadTushareMarketThread : ReadStockMarketThread
+    public class ReadTushareStockMarketThread : ReadStockMarketThread
     {
         public override void Run()
         {
