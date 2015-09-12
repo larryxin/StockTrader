@@ -4,5 +4,6 @@ obj
 monitor.suo
 StockTraderModel
 TestStockTrader
+TestResults
 *.testsettings
 monitor.vsmdi
