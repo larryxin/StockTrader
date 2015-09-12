@@ -53,21 +53,21 @@ namespace StockTrader
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("基金组", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("股票组", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("基金组", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("股票组", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "轮动策略",
             "本策略从轮动中获取相对收益，战胜单个标的的涨幅"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "150171",
             "证券A"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "150221",
             "中航军A"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "150171",
             "证券A"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "150221",
             "中航军A"}, -1);
             this.button1 = new System.Windows.Forms.Button();
@@ -162,16 +162,16 @@ namespace StockTrader
             this.columnHeader3,
             this.columnHeader4});
             this.listView1.ContextMenuStrip = this.ctxStrategyMenu;
-            listViewGroup3.Header = "基金组";
-            listViewGroup3.Name = "jjz";
-            listViewGroup4.Header = "股票组";
-            listViewGroup4.Name = "gpz";
+            listViewGroup1.Header = "基金组";
+            listViewGroup1.Name = "jjz";
+            listViewGroup2.Header = "股票组";
+            listViewGroup2.Name = "gpz";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3,
-            listViewGroup4});
-            listViewItem6.Group = listViewGroup4;
+            listViewGroup1,
+            listViewGroup2});
+            listViewItem1.Group = listViewGroup2;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem6});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(22, 17);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(180, 248);
@@ -243,8 +243,8 @@ namespace StockTrader
             this.columnHeader1,
             this.columnHeader2});
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem7});
+            listViewItem2,
+            listViewItem3});
             this.listView2.Location = new System.Drawing.Point(243, 30);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(392, 73);
@@ -280,12 +280,15 @@ namespace StockTrader
             // 
             // listView3
             // 
+            this.listView3.CheckBoxes = true;
             this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
             this.columnHeader6});
+            listViewItem4.StateImageIndex = 0;
+            listViewItem5.StateImageIndex = 0;
             this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem8,
-            listViewItem9});
+            listViewItem4,
+            listViewItem5});
             this.listView3.Location = new System.Drawing.Point(243, 145);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(392, 82);

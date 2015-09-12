@@ -44,14 +44,20 @@
   <ItemGroup>
     <Compile Include="BaseStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RotationStrategy.cs" />
+    <Compile Include="RotationStrategy\RatationStrategyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RotationStrategy\RatationStrategyControl.Designer.cs">
+      <DependentUpon>RatationStrategyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RotationStrategy\RotationStrategy.cs" />
     <Compile Include="Settings\BaseSettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings\RotationStrategyForm.cs">
+    <Compile Include="RotationStrategy\RotationStrategyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings\RotationStrategyForm.Designer.cs">
+    <Compile Include="RotationStrategy\RotationStrategyForm.Designer.cs">
       <DependentUpon>RotationStrategyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StrategyManager.cs" />
@@ -63,7 +69,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Settings\RotationStrategyForm.resx">
+    <EmbeddedResource Include="RotationStrategy\RatationStrategyControl.resx">
+      <DependentUpon>RatationStrategyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RotationStrategy\RotationStrategyForm.resx">
       <DependentUpon>RotationStrategyForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
